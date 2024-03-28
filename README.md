@@ -1,6 +1,9 @@
 # sublime
 🧠Behavior Change as a Service🌞
 
+
+[![recomment](https://ideas.subconscious.ai/)
+
 [![Release Notes](https://img.shields.io/github/release/langchain-ai/langchain)](https://github.com/langchain-ai/langchain/releases)
 [![CI](https://github.com/langchain-ai/langchain/actions/workflows/check_diffs.yml/badge.svg)](https://github.com/langchain-ai/langchain/actions/workflows/check_diffs.yml)
 [![Downloads](https://static.pepy.tech/badge/langchain/month)](https://pepy.tech/project/langchain)
