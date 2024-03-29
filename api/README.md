@@ -8,8 +8,7 @@ It is as simple as that! But before we start, remember to generate an API token 
 
 ### Step 1
 
-`
-// Step 1 - Generate a token to access the API
+```
 
 conn = http.client.HTTPSConnection("auth.subconscious.ai")
 
@@ -26,4 +25,28 @@ conn.request("POST", "/oauth/token", payload, headers)
 res = conn.getresponse()
 data = json.loads(res.read().decode("utf-8"))
 
-`
+```
+
+Now, you can adjust your headers for all future calls to the API by adding the token we obtained above
+
+```
+access_token=data['access_token']
+headers = {'Content-Type':'application/json',"Authorization": "Bearer %s" %access_token}
+
+```
+
+The next step involves defining our causal prompt, which will serve as the foundation for setting up our task. To assist you in crafting this prompt, we offer a helpful 'check-causality' feature!
+
+### Step 2
+
+```
+
+prompt = "I would like to design a new electric car for the American markets"
+
+response = requests.post("https://api.subconscious.ai/copilot/check-causality", headers=headers, params=params)
+isCausal=json.loads(response.content)
+
+if (not isCausal['is_causal']):
+  prompt = isCausal['suggestions'][0]
+
+```
