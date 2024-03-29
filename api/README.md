@@ -121,4 +121,4 @@ metrics = json.loads(response.content)
 ```
 
 That's it! You just ran your first experiment! 
-You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided [<link>](https://api.subconscious.ai/docs#/). Should you have any additional questions or need further assistance, please feel free to contact us at ethicsboard@subconscious.ai.
+You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided [link](https://api.subconscious.ai/docs#/). Should you have any additional questions or need further assistance, please feel free to contact us at ethicsboard@subconscious.ai.
