@@ -3,10 +3,10 @@
 Welcome to Subconscious AI, where we are redefining the landscape of market research and product development through our revolutionary "Behaviour Change as a Service" model. Utilizing the cutting-edge capabilities of Large Language Models (LLMs), we empower businesses to conduct Causal Market Research at an unprecedented pace, ensuring higher quality and ethical standards that surpass existing methodologies. With our commitment to human-level reliability, we stand at the forefront of guiding businesses through the critical steps of Ideation, User Research, and Product Design. Subconscious AI is not just a tool; it's a game-changer in understanding and influencing consumer behavior.
 
 ## Contents
-- [Token Genration]()
-- [Prompt Generation]()
-- [Attributes & Levels]()
-- [Experiment & Results]()
+- [Token Genration](https://github.com/Subconscious-ai/sublime/tree/API/api#step-1)
+- [Prompt Generation](https://github.com/Subconscious-ai/sublime/tree/API/api#step-2)
+- [Attributes & Levels](https://github.com/Subconscious-ai/sublime/tree/API/api#step-3)
+- [Experiment & Results](https://github.com/Subconscious-ai/sublime/tree/API/api#step-4)
 
 To simulate a causal market research, our system employs the following steps:
 Design a Causal Prompt pertaining to the task  -> Generate/Design attributes and their levels for the task -> Run the experiment
@@ -121,4 +121,4 @@ metrics = json.loads(response.content)
 ```
 
 That's it! You just ran your first experiment! 
-You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided <link>. Should you have any additional questions or need further assistance, please feel free to contact us at <email>.
+You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided [<link>](https://api.subconscious.ai/docs#/). Should you have any additional questions or need further assistance, please feel free to contact us at ethicsboard@subconscious.ai.
