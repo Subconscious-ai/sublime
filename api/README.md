@@ -37,6 +37,7 @@ headers = {'Content-Type':'application/json',"Authorization": "Bearer %s" %acces
 
 The next step involves defining our causal prompt, which will serve as the foundation for setting up our task. To assist you in crafting this prompt, we offer a helpful 'check-causality' feature!
 
+
 ### Step 2
 
 ```
@@ -50,3 +51,68 @@ if (not isCausal['is_causal']):
   prompt = isCausal['suggestions'][0]
 
 ```
+
+After selecting the prompt, we progress to constructing our attributes and their corresponding levels, which define the scale of each attribute. For instance, consider a car: "Price" could be an essential attribute, with a range from $10,000 to $100,000. You have the flexibility to access a more detailed set of levels through our API, or you can opt to define these levels yourself!
+
+### Step 3
+
+```
+
+data={
+  "idea": prompt,
+  "prompt_type": "product",
+  "num_levels": 3,
+  "max_length": 80,
+  "num_attrs": 3,
+  "model_type": "gpt4"
+}
+
+response = requests.post("https://api.subconscious.ai/levels", headers=headers, json=data)
+levels=json.loads(response.content)
+
+
+```
+
+Finally, we can now run our experiment! But first, we need to setup the data to run the experiment.
+
+### Step 4
+
+```
+
+exp_data={
+  "number_of_attributes": 2,
+  "number_of_levels": 3,
+  "pre_cooked_attributes_and_levels_lookup": attributes,
+  "where_preamble": "United States",
+  "when_preamble": "2023",
+  "experimentor_why_question_type": "generic",
+  "experimentor_why_question_prompt": prompt,
+  "number_of_respondents": 75,
+  "number_of_tasks_per_respondent": 10,
+  "model_type": "default",
+  "levels_per_trait": 2,
+  "null_levels": True,
+  "max_length": 40,
+  "add_price_and_brand_attributes": False,
+  "hb_run_id": "",
+  "paper_data": [],
+  "is_private": False
+}
+
+response = requests.post("https://api.subconscious.ai/experiments", headers=headers, json=exp_data)
+experiment=json.loads(response.content)
+
+```
+
+The provided snippet gives a WandB (Weights & Biases) ID and run name, enabling you to visualize the experiment run and view the result parameters. These details can be easily accessed in your code by utilizing our runs endpoint.
+
+```
+
+url = "https://api.subconscious.ai/runs/" + experiment['wandb_run_id']
+response = requests.post(url, headers=headers)
+metrics = json.loads(response.content)
+
+```
+
+That's it! You just ran your first experiment! 
+You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided <link>. Should you have any additional questions or need further assistance, please feel free to contact us at <email>.
