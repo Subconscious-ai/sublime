@@ -26,4 +26,11 @@
 
 ## 🌟 Contributors
 
-[![SubconciousAI contributors](https://contrib.rocks/image?repo=langchain-ai/langchain&max=2000)](https://github.com/Subconscious-ai/sublime/graphs/contributors)
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+@all-contributors please add @<username> for <contributions>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
