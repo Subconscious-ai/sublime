@@ -26,11 +26,6 @@
 
 ## 🌟 Contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-@all-contributors please add @<username> for <contributions>
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+ [<img src="https://github.com/tenzu15.png" width="60px;"/><br /><sub>tenzu15</sub>](https://github.com/tenzu15)
+ <!--(https://github.com/{{ contributor }}/{{ repository }})  -->
+ 
