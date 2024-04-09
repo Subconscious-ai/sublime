@@ -120,5 +120,5 @@ metrics = json.loads(response.content)
 
 ```
 
-That's it! You just ran your first experiment! 
+That's it! You just ran your first experiment! This is also available in [Colab](https://colab.research.google.com/drive/19QQtXVb8qONgveSxYedbHfBrcZ5GS_Fn?usp=sharing).
 You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided [link](https://api.subconscious.ai/docs#/). Should you have any additional questions or need further assistance, please feel free to contact us at ethicsboard@subconscious.ai.
