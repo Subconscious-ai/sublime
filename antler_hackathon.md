@@ -1,5 +1,7 @@
 # Subconscious AI API Documentation
 
+> Note: For the canonical quickstart, use `api/README.md`. This document is an extended reference with larger payload examples.
+
 ## Welcome to Subconscious AI
 
 Subconscious AI redefines market research and product development with our innovative "Behaviour Change as a Service" model. Powered by advanced Large Language Models (LLMs), we enable businesses to conduct **Causal Market Research** with unmatched speed, quality, and ethical standards. Our platform delivers human-level reliability, guiding you through **Ideation**, **User Research**, and **Product Design**. Subconscious AI is your partner in understanding and influencing consumer behavior.
@@ -115,7 +117,7 @@ response = httpx.post(
 
 Finally, we can now run our experiment! But first, we need to setup the data to run the experiment.
 
-[//]: # (todo: the result of the previosu step should be used here to populate the attributes and levels)
+[//]: # (TODO: use the output of the previous step to populate attributes and levels.)
 
 **Purpose:** Launches a conjoint analysis experiment to measure customer preferences and understand what drives behavior change.
 

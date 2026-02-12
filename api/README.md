@@ -1,124 +1,137 @@
-# Getting Started!
+# API Quickstart
 
-Welcome to Subconscious AI, where we are redefining the landscape of market research and product development through our revolutionary "Behaviour Change as a Service" model. Utilizing the cutting-edge capabilities of Large Language Models (LLMs), we empower businesses to conduct Causal Market Research at an unprecedented pace, ensuring higher quality and ethical standards that surpass existing methodologies. With our commitment to human-level reliability, we stand at the forefront of guiding businesses through the critical steps of Ideation, User Research, and Product Design. Subconscious AI is not just a tool; it's a game-changer in understanding and influencing consumer behavior.
+This is the canonical quickstart for running your first Subconscious AI experiment.
 
 ## Contents
-- [Token Genration](https://github.com/Subconscious-ai/sublime/tree/API/api#step-1)
-- [Prompt Generation](https://github.com/Subconscious-ai/sublime/tree/API/api#step-2)
-- [Attributes & Levels](https://github.com/Subconscious-ai/sublime/tree/API/api#step-3)
-- [Experiment & Results](https://github.com/Subconscious-ai/sublime/tree/API/api#step-4)
+- [Step 1: Configure Access](#step-1-configure-access)
+- [Step 2: Validate Prompt Causality](#step-2-validate-prompt-causality)
+- [Step 3: Generate Attributes and Levels](#step-3-generate-attributes-and-levels)
+- [Step 4: Run an Experiment](#step-4-run-an-experiment)
+- [Step 5: Retrieve Results](#step-5-retrieve-results)
 
-To simulate a causal market research, our system employs the following steps:
-Design a Causal Prompt pertaining to the task  -> Generate/Design attributes and their levels for the task -> Run the experiment
-It is as simple as that! But before we start, remember to generate an API token for authorization purposes. So, 
+## API Versioning Notes
 
-### Step 1
+Current public routes include both `/api/v1` and `/api/v2` endpoints. Use the endpoint path shown in each example and confirm details in the API Playground: [https://api.subconscious.ai/docs#/](https://api.subconscious.ai/docs#/).
 
-```
+## Step 1: Configure Access
 
-conn = http.client.HTTPSConnection("auth.subconscious.ai")
+Generate an access token at [https://app.subconscious.ai/settings](https://app.subconscious.ai/settings), then pass it as a bearer token.
 
-username = "<username>"
-password = "<password>"
-audience = "https://dev-5qhuxyzkmd8cku6i.us.auth0.com/api/v2/"
-client_id = "MR5gS0QSe3boMNAtnR0t1t2ctNpzSHsd"
-client_secret = "c1GGYa9U7gbX5dvDR8pRHvmmY067InwLi0HYZMNXzKg9zn99RvNf13ibsDzT2jKV"
+```python
+import httpx
 
-payload = f"grant_type=password&username={username}&password={password}&audience={audience}&scope=read:current_user&client_id={client_id}&client_secret={client_secret}"
-headers = { 'content-type': "application/x-www-form-urlencoded" }
+BASE_URL = "https://api.subconscious.ai"
+TOKEN = "${SUBCONSCIOUS_TOKEN}"  # Set via environment variable or secret manager
 
-conn.request("POST", "/oauth/token", payload, headers)
-res = conn.getresponse()
-data = json.loads(res.read().decode("utf-8"))
-
-```
-
-Now, you can adjust your headers for all future calls to the API by adding the token we obtained above
-
-```
-access_token=data['access_token']
-headers = {'Content-Type':'application/json',"Authorization": "Bearer %s" %access_token}
-
-```
-
-The next step involves defining our causal prompt, which will serve as the foundation for setting up our task. To assist you in crafting this prompt, we offer a helpful 'check-causality' feature!
-
-
-### Step 2
-
-```
-
-prompt = "I would like to design a new electric car for the American markets"
-
-response = requests.post("https://api.subconscious.ai/copilot/check-causality", headers=headers, params=params)
-isCausal=json.loads(response.content)
-
-if (not isCausal['is_causal']):
-  prompt = isCausal['suggestions'][0]
-
-```
-
-After selecting the prompt, we progress to constructing our attributes and their corresponding levels, which define the scale of each attribute. For instance, consider a car: "Price" could be an essential attribute, with a range from $10,000 to $100,000. You have the flexibility to access a more detailed set of levels through our API, or you can opt to define these levels yourself!
-
-### Step 3
-
-```
-
-data={
-  "idea": prompt,
-  "prompt_type": "product",
-  "num_levels": 3,
-  "max_length": 80,
-  "num_attrs": 3,
-  "model_type": "gpt4"
+headers = {
+    "Authorization": f"Bearer {TOKEN}",
+    "Content-Type": "application/json",
 }
 
-response = requests.post("https://api.subconscious.ai/levels", headers=headers, json=data)
-levels=json.loads(response.content)
-
-
+client = httpx.Client(timeout=300.0)
 ```
 
-Finally, we can now run our experiment! But first, we need to setup the data to run the experiment.
+## Step 2: Validate Prompt Causality
 
-### Step 4
+Use `POST /api/v2/copilot/causality` to verify your research prompt.
 
+```python
+why_prompt = (
+    "I want to understand which laptop features most influence purchase decisions "
+    "for U.S. software engineers in 2026."
+)
+
+try:
+    response = client.post(
+        f"{BASE_URL}/api/v2/copilot/causality",
+        headers=headers,
+        json={"why_prompt": why_prompt},
+    )
+    response.raise_for_status()
+    causality = response.json()
+except httpx.HTTPStatusError as exc:
+    raise RuntimeError(
+        f"Causality check failed: {exc.response.status_code} {exc.response.text}"
+    ) from exc
 ```
 
-exp_data={
-  "number_of_attributes": 2,
-  "number_of_levels": 3,
-  "pre_cooked_attributes_and_levels_lookup": attributes,
-  "where_preamble": "United States",
-  "when_preamble": "2023",
-  "experimentor_why_question_type": "generic",
-  "experimentor_why_question_prompt": prompt,
-  "number_of_respondents": 75,
-  "number_of_tasks_per_respondent": 10,
-  "model_type": "default",
-  "levels_per_trait": 2,
-  "null_levels": True,
-  "max_length": 40,
-  "add_price_and_brand_attributes": False,
-  "hb_run_id": "",
-  "paper_data": [],
-  "is_private": False
-}
+## Step 3: Generate Attributes and Levels
 
-response = requests.post("https://api.subconscious.ai/experiments", headers=headers, json=exp_data)
-experiment=json.loads(response.content)
+Use `POST /api/v1/product-attributes-levels` to generate candidate attributes.
 
+```python
+try:
+    response = client.post(
+        f"{BASE_URL}/api/v1/product-attributes-levels",
+        headers=headers,
+        json={
+            "why_prompt": why_prompt,
+            "attribute_count": 6,
+            "level_count": 4,
+            "country": "USA",
+        },
+    )
+    response.raise_for_status()
+    attributes = response.json().get("pre_cooked_attributes_and_levels_lookup", [])
+except httpx.HTTPStatusError as exc:
+    raise RuntimeError(
+        f"Attribute generation failed: {exc.response.status_code} {exc.response.text}"
+    ) from exc
 ```
 
-The provided snippet gives a WandB (Weights & Biases) ID and run name, enabling you to visualize the experiment run and view the result parameters. These details can be easily accessed in your code by utilizing our runs endpoint.
+## Step 4: Run an Experiment
 
+Use `POST /api/v1/experiments` with the generated attributes.
+
+```python
+try:
+    response = client.post(
+        f"{BASE_URL}/api/v1/experiments",
+        headers=headers,
+        json={
+            "why_prompt": why_prompt,
+            "country": "United States",
+            "year": "2026",
+            "pre_cooked_attributes_and_levels_lookup": attributes,
+            "number_of_respondents": 75,
+            "number_of_tasks_per_respondent": 10,
+        },
+    )
+    response.raise_for_status()
+    result = response.json()
+except httpx.HTTPStatusError as exc:
+    raise RuntimeError(
+        f"Experiment creation failed: {exc.response.status_code} {exc.response.text}"
+    ) from exc
 ```
 
-url = "https://api.subconscious.ai/runs/" + experiment['wandb_run_id']
-response = requests.post(url, headers=headers)
-metrics = json.loads(response.content)
+## Step 5: Retrieve Results
 
+Use `GET /api/v1/runs/artifact/{file_name}` after experiment processing completes.
+
+```python
+wandb_run_name = result["wandb_run_name"]
+file_name = f"Analytics_output_{wandb_run_name}"
+
+try:
+    response = client.get(
+        f"{BASE_URL}/api/v1/runs/artifact/{file_name}",
+        headers=headers,
+    )
+    response.raise_for_status()
+    analytics = response.json()
+except httpx.HTTPStatusError as exc:
+    raise RuntimeError(
+        f"Results retrieval failed: {exc.response.status_code} {exc.response.text}"
+    ) from exc
 ```
 
-That's it! You just ran your first experiment! This is also available in [Colab](https://colab.research.google.com/drive/19QQtXVb8qONgveSxYedbHfBrcZ5GS_Fn?usp=sharing).
-You can further customize your experiment by consulting the Swagger UI documentation, accessible through the provided [link](https://api.subconscious.ai/docs#/). Should you have any additional questions or need further assistance, please feel free to contact us at ethicsboard@subconscious.ai.
+## Troubleshooting
+
+- `401 Unauthorized`: verify token validity and authorization header format.
+- `422 Unprocessable Entity`: validate payload schema and required fields.
+- Long-running requests: use client timeouts of at least 300 seconds for generation endpoints.
+
+## Extended Reference
+
+For a longer, end-to-end walkthrough (including persona-rich payloads), use `antler_hackathon.md`.
