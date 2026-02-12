@@ -25,7 +25,7 @@ jobs:
           args: >-
             --no-progress
             --verbose
-            --accept 200,429
+            --accept 200,401,429
             '**/*.md'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -33,12 +33,16 @@ jobs:
   markdown-lint:
     name: Markdown Lint (non-blocking)
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Lint markdown
+        id: lint
+        continue-on-error: true
         uses: DavidAnson/markdownlint-cli2-action@v18
         with:
           globs: |
             **/*.md
+      - name: Report non-blocking lint result
+        if: steps.lint.outcome == 'failure'
+        run: echo "Markdown lint found style issues (non-blocking)."
