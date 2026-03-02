@@ -3,28 +3,6 @@
 
 Behavior Change as a Service🌞    
 
-
-<!--[![recomment]](https://ideas.subconscious.ai/)
-
-<!--[![Release Notes](https://docs.google.com/document/d/1BVZsVeQnk9AMC1zxN3pw_LPjOKrEtBVPXmmiqTDdzVs/edit#heading=h.cok4hkezrxg)
-[![CI]()]()
-[![Downloads](https://static.pepy.tech/badge/langchain/month)](https://pepy.tech/project/langchain)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchainai.svg?style=social&label=Follow%20%40LangChainAI)](https://twitter.com/langchainai)
-[![](https://dcbadge.vercel.app/api/server/6adMQxSpJS?compact=true&style=flat)](https://discord.com/invite/3bgj4ZhABz)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/langchain-ai/langchain)
-[![GitHub star chart](https://img.shields.io/github/stars/langchain-ai/langchain?style=social)](https://star-history.com/#Subconscious-ai/sublime/)
-[![Open Issues](https://img.shields.io/github/issues-raw/langchain-ai/langchain)](https://github.com/Subconscious-ai/sublime/issues)
-[![Slack](https://img.shields.io/badge/slack--channel-blue?logo=slack)]()
-
-[![Go Reference](https://pkg.go.dev/badge/github.com/weaviate/weaviate.svg)](https://pkg.go.dev/github.com/weaviate/weaviate)
-[![Build Status](https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml/badge.svg?branch=main)](https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/weaviate/weaviate)](https://goreportcard.com/report/github.com/weaviate/weaviate)
-[![Coverage Status](https://codecov.io/gh/weaviate/weaviate/branch/main/graph/badge.svg)](https://codecov.io/gh/weaviate/weaviate)
-[![Slack](https://img.shields.io/badge/slack--channel-blue?logo=slack)](https://weaviate.io/slack)
-[![GitHub Tutorials](https://img.shields.io/badge/Weaviate_Tutorials-green)](https://github.com/weaviate-tutorials/) 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/langchain-ai/langchain)-->
-
 [![Open Issues](https://img.shields.io/github/issues-raw/Subconscious-ai/sublime)](https://github.com/Subconscious-ai/sublime/issues) [![Release Notes](https://img.shields.io/badge/Release-Notes-blue)](https://docs.google.com/document/d/1BVZsVeQnk9AMC1zxN3pw_LPjOKrEtBVPXmmiqTDdzVs/edit#heading=h.cok4hkezrxg)
 [![Stars](https://img.shields.io/github/stars/Subconscious-ai/sublime)](https://star-history.com/#Subconscious-ai/sublime/)
 
@@ -53,17 +31,21 @@ We poll the Representative Population to obtain answers for each respondent. Eac
 ### Reporting and Expansion
 Results are analyzed using state-of-the-art causal modeling techniques. The coefficients are used to estimate the preferences of subgroups in the population, create clusters, and report on which features of the product each persona prefers, and why.
 
+## 📚 Documentation Map
+- `api/README.md`: canonical quickstart for token setup and first API workflow.
+- `antler_hackathon.md`: extended end-to-end walkthrough with deeper examples.
+- `Security.md`: vulnerability disclosure policy for this repository.
+
 ## 💬  Important Links
-- [Getting Started!](https://github.com/Subconscious-ai/sublime/blob/API/api/README.md)
-- [Demo, Get to Know Us!]()
+- [Getting Started](api/README.md)
 - [Subconscious AI Wiki](https://docs.subconscious.ai/)
 - [API Playground](https://api.subconscious.ai/docs#/)
-- [API Documentation]()
+- [Security Policy](Security.md)
 
 ## Join Us!
 Please reach out, and join our community:
 - [Linkedin](https://www.linkedin.com/company/subconscious-ai/)
-- [Twitter](https://www.linkedin.com/company/subconscious-ai/)
+- [Twitter](https://twitter.com/subconscious_ai)
 - [Discord](https://discord.com/invite/3bgj4ZhABz)
 - [Email](press@subconscious.ai)
 
@@ -73,11 +55,9 @@ Please reach out, and join our community:
  [<img src="https://github.com/AidaE.png" width="60px;"/>](https://github.com/AidaE) 
  [<img src="https://github.com/aastroza.png" width="60px;"/>](https://github.com/aastroza) 
  [<img src="https://github.com/aviyashchin.png" width="60px;"/>](https://github.com/aviyashchin)
- [<img src="https://github.com/CodeJellee.png" width="60px;"/>](https://github.com/CodeJellee) 
  [<img src="https://github.com/Darcy667.png" width="60px;"/>](https://github.com/Darcy667) 
  [<img src="https://github.com/JadeChan03.png" width="60px;"/>](https://github.com/JadeChan03) 
  [<img src="https://github.com/jessiezhang39.png" width="60px;"/>](https://github.com/jessiezhang39) 
- [<img src="https://github.com/MahdiJafari1.png" width="60px;"/>](https://github.com/MahdiJafari1) 
  [<img src="https://github.com/MahithaSann.png" width="60px;"/>](https://github.com/MahithaSann) 
  [<img src="https://github.com/mikefischer.png" width="60px;"/>](https://github.com/mikefischer) 
  [<img src="https://github.com/rbolline.png" width="60px;"/>](https://github.com/rbolline) 

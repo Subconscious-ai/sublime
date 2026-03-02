@@ -1,61 +1,33 @@
 # Security Policy
 
-## Reporting OSS Vulnerabilities
+## Reporting Vulnerabilities
 
-Subconscious is partnered with [huntr by Protect AI](https://huntr.com/) to provide 
-a bounty program for our open source projects. 
+If you discover a security issue in this repository or the examples it contains:
 
-Please report security vulnerabilities associated with the Subconscious 
-open source projects by visiting the following link:
+1. Submit a report via huntr: [https://huntr.com/bounties/disclose/](https://huntr.com/bounties/disclose/?target=https%3A%2F%2Fgithub.com%2FSubconscious-ai%2Fsublime&validSearch=true)
+2. If huntr is unavailable or your report is time-sensitive, email: `security@subconscious.ai`
 
-[https://huntr.com/bounties/disclose/](https://huntr.com/bounties/disclose/?target=https%3A%2F%2Fgithub.com%2FSubconscious-ai%2FSubconscious&validSearch=true)
+Please include:
+- A clear description of the issue and impact
+- Reproduction steps or proof of concept
+- Any affected files, links, or endpoints
 
-Before reporting a vulnerability, please review:
+Do not open public GitHub issues for unpatched security vulnerabilities.
 
-1) In-Scope Targets and Out-of-Scope Targets below.
-2) The [Subconscious-ai/Subconscious](https://python.Subconscious.com/docs/contributing/repo_structure) monorepo structure.
-3) Subconscious [security guidelines](https://python.Subconscious.com/docs/security) to
-   understand what we consider to be a security vulnerability vs. developer
-   responsibility.
+## Scope
 
-### In-Scope Targets
+This policy applies to content in this repository, including:
+- Documentation and examples in `README.md`, `api/README.md`, and `antler_hackathon.md`
+- Repository configuration and workflow files
 
-The following packages and repositories are eligible for bug bounties:
+Third-party services linked from this repository are out of scope unless the issue is caused by this repository's configuration or guidance.
 
-- Subconscious-core
-- Subconscious (see exceptions)
-- Subconscious-community (see exceptions)
-- langgraph
-- langserve
+## Secret Handling
 
-### Out of Scope Targets
+- Never commit real credentials, API keys, client secrets, or tokens.
+- Use placeholders such as `<username>`, `${SUBCONSCIOUS_TOKEN}`, and `<client_id>`.
+- If credentials are accidentally committed, rotate them immediately and submit a private security report.
 
-All out of scope targets defined by huntr as well as:
+## Responsible Disclosure
 
-- **Subconscious-experimental**: This repository is for experimental code and is not
-  eligible for bug bounties, bug reports to it will be marked as interesting or waste of
-  time and published with no bounty attached.
-- **tools**: Tools in either Subconscious or Subconscious-community are not eligible for bug
-  bounties. This includes the following directories
-  - Subconscious/tools
-  - Subconscious-community/tools
-  - Please review our [security guidelines](https://python.Subconscious.com/docs/security)
-    for more details, but generally tools interact with the real world. Developers are
-    expected to understand the security implications of their code and are responsible
-    for the security of their tools.
-- Code documented with security notices. This will be decided done on a case by
-  case basis, but likely will not be eligible for a bounty as the code is already
-  documented with guidelines for developers that should be followed for making their
-  application secure.
-- Any LangSmith related repositories or APIs see below.
-
-## Reporting LangSmith Vulnerabilities
-
-Please report security vulnerabilities associated with LangSmith by email to `security@Subconscious.dev`.
-
-- LangSmith site: https://smith.Subconscious.com
-- SDK client: https://github.com/Subconscious-ai/langsmith-sdk
-
-### Other Security Concerns
-
-For any other security concerns, please contact us at `security@Subconscious.dev`.
+We ask reporters to avoid public disclosure until the issue has been triaged and mitigated. We will acknowledge valid reports and coordinate remediation timelines.
