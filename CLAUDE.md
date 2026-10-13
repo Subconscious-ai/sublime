@@ -22,3 +22,17 @@ This is a documentation repo. No build command, no test runner. Changes are mark
 
 ## Default Branch
 `main`
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Standard five-role vocabulary. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single root context, reusing existing domain documentation. See `docs/agents/domain.md`.
