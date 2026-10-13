@@ -22,3 +22,7 @@ This is a documentation repo. No build command, no test runner. Changes are mark
 
 ## Default Branch
 `main`
+
+## Shared engineering skills
+
+@AGENTS.md
