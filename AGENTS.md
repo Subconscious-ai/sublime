@@ -44,3 +44,9 @@ Recent history uses short, imperative subjects (for example, `Update README.md`,
 
 ## Security & Configuration Tips
 Never commit real credentials, tokens, or private endpoints. In examples, prefer placeholders (`<username>`, `${ACCESS_TOKEN}`) and reference secure reporting flow in `Security.md`.
+
+## Agent skills
+
+Before using the engineering skills, read the shared repository configuration in
+`docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, and
+`docs/agents/domain.md`.
