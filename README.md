@@ -1,4 +1,9 @@
 # 🧠 Sublime 
+
+> **Retired.** The owner decided on 2026-11-22 to archive this repository and take down its site, `ideas.subconscious.ai` (owner answer Q6).
+> This page describes the product as of 2024. It is not current.
+> For the current product, see [subconscious.ai](https://www.subconscious.ai/). For the API, see [docs.subconscious.ai](https://docs.subconscious.ai/).
+
 - by [SubconsciousAI](https://www.subconscious.ai/)
 
 Behavior Change as a Service🌞    
