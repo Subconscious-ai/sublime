@@ -47,7 +47,7 @@ Please reach out, and join our community:
 - [Linkedin](https://www.linkedin.com/company/subconscious-ai/)
 - [Twitter](https://twitter.com/subconscious_ai)
 - [Discord](https://discord.com/invite/3bgj4ZhABz)
-- [Email](press@subconscious.ai)
+- [Email](mailto:press@subconscious.ai)
 
 ## 🌟 Contributors
 

@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+@AGENTS.md
+
 Sublime is the public-facing repository for Subconscious AI's "Behavior Change as a Service" platform (simile.ai brand). Primarily documentation, API specs, and a hackathon writeup.
 
 ## Stack
