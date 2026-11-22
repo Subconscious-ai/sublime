@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Finding the code
+
+Use the [repository overview](README.md) and [API reference](api/README.md) to locate a public example. Follow the documented links and check the source text when updating a claim. On a managed checkout, open the shared Repository tools guide for service ownership and runtime evidence.
+
 ## Project Structure & Module Organization
 This repository is documentation-first.
 
